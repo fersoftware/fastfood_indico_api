@@ -88,7 +88,7 @@ And navigate to `http://0.0.0.0:8000/`.
 
 ## Persisting data in Postgree databases
 
-- This script import data from the [Fast_Food_Restaurants_US.csv](https://github.com/fersoftware/fastfood_indico_api/blob/main/Fast_Food_Restaurants_US.csv) file into SQLite.
+- This script import data from the [Fast_Food_Restaurants_US.csv](https://github.com/fersoftware/fastfood_indico_api/blob/main/Fast_Food_Restaurants_US.csv) file into Postgree.
 
 ```sh
 (env)$  python importCSVtoPostgre.py -f Fast_Food_Restaurants_US.csv -t fast-food
