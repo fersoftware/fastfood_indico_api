@@ -1,0 +1,86 @@
+{% extends "./base.html" %}
+{% load crispy_forms_tags %}
+{% block main  %}
+<div>
+    <div class="card">
+        <div class="card-body">
+            <form id="form_fastfood" method="POST">
+                <div class="col-md-12 p-2 mb-4" style="background: #294986;">
+                    <div class="row">
+                        <div class="col-lg-2">
+
+                            <button type="submit" class="btn text-white col-md-11" id="salvar_form"
+                                    style="margin-right: 25px; padding: 10px; font-size: 15px;;background:#FFA500;"><i
+                                    class="far fa-check-circle"></i> ATUALIZAR
+                            </button>
+
+                        </div>
+                        <div class="col-lg-8">
+                            <h2 style="text-align: center; color: white;">Informações - Fast Food</h2>
+                        </div>
+                        <div class="col-lg-2">
+                             <a href="{% url 'delete_view' form.id.value %}" class="btn btn-danger col-md-3"
+                               style="padding: 10px; font-size: 15px; float: right; right: 15px; position: absolute;"><i
+                                    class="far fa-arrow-alt-circle-left"></i> Apagar</a>
+
+                        </div>
+                    </div>
+                </div>
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ form.name|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ form.address|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3">
+                        {{ form.city|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3">
+                        {{ form.country|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3">
+                        {{ form.province|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-3">
+                        {{ form.postalCode|as_crispy_field }}
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        {{ form.categories|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form.latitude|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form.longitude|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.websites|as_crispy_field }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+$('#salvar_form').on('submit', function(e) {
+    e.preventDefault();
+    $.ajax({
+        type:"POST",
+        url: `${window.location.protocol}${window.location.host}/api/v1/foods/${$('#id_id').val()}`,
+        data:$('#salvar_form').serialize(),
+        error: function(response){
+            alert('Not authorized.');  // Or something in a message DIV
+        },
+        success: function(response){
+            console.log(response);
+        }
+    });
+});
+</script>
+{% endblock %}
