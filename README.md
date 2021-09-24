@@ -20,10 +20,10 @@ Consuming API: http://127.0.0.1:8000/
 API: http://127.0.0.1:8000/api/v1/
 
 Endpoints:
-list http://127.0.0.1:8000/api/v1/foods   //Listagem das lojas e  Visualização de uma loja específica <br> 
-http://127.0.0.1:8000/create/      //Criação de uma nova loja <br> 
-http://127.0.0.1:8000/update/<int:pk>/    //Atualização dos dados de uma loja <br> 
-http://127.0.0.1:8000/delete/<int:pk>     // Remoção de uma loja <br> 
+* list http://127.0.0.1:8000/api/v1/foods   //Listagem das lojas e  Visualização de uma loja específica <br> 
+* http://127.0.0.1:8000/create/      //Criação de uma nova loja <br> 
+* http://127.0.0.1:8000/update/<int:pk>/    //Atualização dos dados de uma loja <br> 
+* http://127.0.0.1:8000/delete/<int:pk>     // Remoção de uma loja <br> 
 
 
 ## Setup
